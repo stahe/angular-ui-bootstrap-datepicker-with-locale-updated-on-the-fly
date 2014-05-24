@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="plunker">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+  <script src="datepicker.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div ng-controller="DatepickerDemoCtrl">
+
+  <pre>Selected date: <em>{{dt | date:'fullDate' }}</em></pre>
+  <div class="row">
+    <div class="col-md-2">
+      <h4>Inline</h4>
+
+      <div style="display:inline-block; min-height:290px;">
+        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <h4>Popup</h4>
+
+      <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="fullDate" ng-model="dt" is-open="opened"
+               ng-required="true" close-text="Close"/>
+              <span class="input-group-btn">
+              <button class="btn btn-primary" ng-click="open($event)">
+                <i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="btn-group" dropdown is-open="status.isopen">
+        <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled"  style="margin-top: 30px">
+          Language <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="" ng-click="setLang('fr')">Français</a></li>
+          <li><a href="" ng-click="setLang('en')">English</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
